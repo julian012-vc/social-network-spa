@@ -1,0 +1,28 @@
+.reaction__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.reaction__container--logo {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid;
+    margin: 10px 0 10px 10px;
+}
+
+.container__logo--image {
+    width: 55%;
+    height: 55%;
+}
+
+.reaction__container--value {
+    margin-left: 10px;
+    font-size: 1em;
+    font-weight: bold;
+}

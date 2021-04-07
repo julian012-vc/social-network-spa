@@ -1,0 +1,66 @@
+.card__container {
+    min-width: 300px;
+    width: 500px;
+    border: 1px solid #eaeaea;
+    border-radius: 4px;
+    margin: 15px;
+}
+
+.card__container--head {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+
+.container__head--icon {
+    flex-grow: 0.03;
+}
+
+.icon-profile {
+    min-width: 35px;
+    max-width: 50px;
+}
+
+.container__head--user-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.user-info--email {
+    font-size: 1.1em;
+    text-align: start;
+    padding-left: 10px;
+}
+
+.user-info--date {
+    font-size: 1em;
+    font-weight: bold;
+    color: gray;
+    text-transform: capitalize;
+    text-align: start;
+    padding-left: 10px;
+}
+
+.card__container--body {
+    padding: 20px;
+}
+
+.container__body--title {
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: justify;
+}
+
+.container__body--content {
+    font-size: 1em;
+    text-align: justify;
+}
+
+.card__container--footer {
+    width: 13%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
