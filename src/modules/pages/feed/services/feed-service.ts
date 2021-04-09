@@ -3,7 +3,7 @@ import axios from "axios";
 import { Feed } from "../interface/feed";
 import { PostEnum } from "../enums/post.enum";
 
-export async function fetchPost(page: number): Promise<{ data: Feed}> {
+export async function fetchPost(page: number): Promise<{ data: Feed }> {
     const url = `${process.env.REACT_APP_SERVER_URL}/api/v1/posts`
     const params = {
         page,

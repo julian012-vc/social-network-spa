@@ -6,8 +6,7 @@ import './Header.css';
 
 const Header = () => {
     return (
-        <Navbar bg="light" sticky="top" expand="lg">
-
+        <Navbar collapseOnSelect sticky="top" bg="light" expand="lg" variant="light">
             <Navbar.Brand href="/">
                 <img src={logo} className="Navbar--logo" alt="logo"/>
             </Navbar.Brand>
@@ -18,17 +17,15 @@ const Header = () => {
 
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
 
-            <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+            <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
                     <NavDropdown title="Menu" id="collasible-nav-dropdown">
-                        <NavDropdown.Item href="#">Mi perfil</NavDropdown.Item>
-                        <NavDropdown.Item href="#">Mensajes</NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item href="#">Grupos</NavDropdown.Item>
+                        <NavDropdown.Item>Mi perfil</NavDropdown.Item>
+                        <NavDropdown.Item>Mensajes</NavDropdown.Item>
+                        <NavDropdown.Item>Grupos</NavDropdown.Item>
                     </NavDropdown>
                 </Nav>
             </Navbar.Collapse>
-
         </Navbar>
     )
 }
