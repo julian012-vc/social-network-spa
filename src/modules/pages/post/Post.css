@@ -1,0 +1,13 @@
+.post__comment__container {
+    width: 95%;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 15px;
+    margin-bottom: 50px;
+}
+
+.post__comment__no-found {
+    width: 95%;
+    text-align: center;
+    font-size: 1.5em;
+}

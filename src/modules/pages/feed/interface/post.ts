@@ -1,4 +1,5 @@
 export interface Post {
+    id?: number;
     title: string;
     content: string;
     email: string;
@@ -7,4 +8,5 @@ export interface Post {
     total_comments?: number;
     created_at: string;
     post_id?: number;
+    alone?: boolean;
 }
