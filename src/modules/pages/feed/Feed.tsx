@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react'
-import { fetchPost } from "./services/feed-service";
+import { ToastProvider } from 'react-toast-notifications';
+
 import PostCard from "./components/post-card/PostCard";
+import Spinner from "../../../shared/components/spinner/Spinner";
+import Footer from "../../../shared/components/footer/Footer";
+
+import { DataPost } from "./interface/data-post";
+
+import { fetchPost } from "./services/feed-service";
 
 import './Feed.css'
-import { DataPost } from "./interface/data-post";
-import Spinner from "../../../shared/components/spinner/Spinner";
 
 const Feed = () => {
     const [posts, setPosts] = useState<Array<DataPost>>([])
@@ -18,7 +23,7 @@ const Feed = () => {
                 .then(res => {
                     setPosts([...posts, ...res.data.result.data])
                     setHasNextPage(res.data.has_next)
-                    if (hasNextPage) window.addEventListener("scroll", onScroll, { passive: true });
+                    if (hasNextPage) window.addEventListener("scroll", onScroll, {passive: true});
                     // eslint-disable-next-line react-hooks/exhaustive-deps
                     canMakeRequest = false
                 })
@@ -42,8 +47,7 @@ const Feed = () => {
     }, [nextPage])
 
 
-
-    const cards = posts.map( item => {
+    const cards = posts.map(item => {
         return (
             <PostCard
                 key={item.id}
@@ -56,14 +60,22 @@ const Feed = () => {
                 total_dislikes={item.attributes.total_dislikes}
                 total_likes={item.attributes.total_likes}
                 alone={false}
+                updateList={null}
             />
         )
     })
 
     return (
         <div className="feed__container">
-            <div className="feed__container--cards">{cards}</div>
-            { hasNextPage && <Spinner/> }
+            <div className="feed__container--body">
+                <ToastProvider>
+                    <div className="feed__container--cards">{cards}</div>
+                    {hasNextPage && <div className="feed__container--body--spinner"><Spinner/></div>}
+                </ToastProvider>
+            </div>
+            <div className="feed__container--footer">
+                <Footer/>
+            </div>
         </div>
     )
 }

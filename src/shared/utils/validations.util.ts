@@ -1,6 +1,6 @@
 import * as yup from 'yup'
 import { SchemaEnum } from "../constants/enums/schema.enum";
-import { CommentForm as ICommentForm } from "../../modules/pages/post/interface/comment-form";
+import { PostForm as ICommentForm } from "../../modules/pages/post/interface/post-form";
 
 export const schema = yup.object().shape({
     email: yup.string().email(SchemaEnum.VALID_EMAIL).required(SchemaEnum.REQUIRED),
