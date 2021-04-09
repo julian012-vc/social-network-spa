@@ -9,4 +9,5 @@ export interface Post {
     created_at: string;
     post_id?: number;
     alone?: boolean;
+    updateList?: any;
 }

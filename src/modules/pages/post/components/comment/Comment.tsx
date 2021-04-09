@@ -1,9 +1,9 @@
 import React from "react";
 import { DataPost } from "../../../feed/interface/data-post";
 
+import { fromNow } from "../../../../../shared/utils/date.utils";
 import iconProfile from '../../../../../assets/user-comment.svg';
 import './Comment.css'
-import {fromNow} from "../../../../../shared/utils/date.utils";
 
 const Comment = (props: DataPost) => {
     return (
@@ -21,7 +21,6 @@ const Comment = (props: DataPost) => {
                     <div className="body__footer--content">{fromNow(props.attributes.created_at)}</div>
                 </div>
             </div>
-
         </div>
     )
 }

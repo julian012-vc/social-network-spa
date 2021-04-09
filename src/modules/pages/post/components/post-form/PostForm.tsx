@@ -1,16 +1,26 @@
-import React from "react";
-import { Button, Form, InputGroup} from "react-bootstrap";
+import React, { useState } from "react";
+import { Button, Form, InputGroup, Spinner} from "react-bootstrap";
 import { Formik } from "formik";
 
-import './CommentForm.css'
+import { PostForm as IPostForm} from "../../interface/post-form";
+
+import { createPost } from "../../services/post-service";
 import { schema, initialValues } from "../../../../../shared/utils/validations.util";
-import { CommentForm as ICommentForm} from "../../interface/comment-form";
 
+import './PostForm.css'
 
-const CommentForm = (props: any) => {
+const PostForm = (props: any) => {
 
-    const submitForm = (values: ICommentForm) => {
-        console.log(values)
+    const [isLoading, setIsLoading] = useState(false)
+
+    const submitForm = (values: IPostForm) => {
+        setIsLoading(true)
+        values.post_id = props.parent
+        createPost(values)
+            .then((res) => {
+                setIsLoading(false)
+                props.onSave(res.data.data)
+            })
     }
 
     return (
@@ -43,7 +53,7 @@ const CommentForm = (props: any) => {
                     </Form.Group>
 
                     <Form.Group controlId="title">
-                        <Form.Label>Username</Form.Label>
+                        <Form.Label>Titulo</Form.Label>
                         <InputGroup hasValidation>
                             <Form.Control
                                 type="text"
@@ -78,12 +88,17 @@ const CommentForm = (props: any) => {
                             </Form.Control.Feedback>
                         </InputGroup>
                     </Form.Group>
-                    <Button type="submit" variant="link">Guardar</Button>
-                    <Button
-                        onClick={props.onHide}
-                        variant="secondary"
-                    >
-                        Cerrar
+                    <Button onClick={props.onHide} variant="secondary">Cerrar</Button>
+                    <Button type="submit" variant="link" disabled={isLoading}>
+                        {
+                            isLoading &&
+                            <Spinner as="span"
+                                animation="border"
+                                size="sm"
+                                role="status"
+                                aria-hidden="true"
+                            />
+                        } Guardar
                     </Button>
                 </Form>
             )}
@@ -91,4 +106,4 @@ const CommentForm = (props: any) => {
     );
 }
 
-export default CommentForm
+export default PostForm
