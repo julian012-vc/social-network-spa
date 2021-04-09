@@ -2,8 +2,8 @@ import React, { useState } from "react";
 
 import { Reaction as IReaction } from "../../../../../shared/interface/reaction";
 
+import { addReaction, deleteReaction } from "../../../post/services/post-service";
 import './Reaction.css'
-import {addReaction, deleteReaction} from "../../../post/services/post-service";
 
 const Reaction = (props: IReaction) => {
 

@@ -1,2 +1,46 @@
 .footer__container {
+    position: absolute;
+    background: #f8f9fa;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 120px;
+    width: 100%;
+}
+
+.footer__container--blank-space {
+    height: 50px;
+    width: 100%;
+    background: white;
+    margin-top: -15px;
+}
+
+.footer__container--social-networks {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.footer__container--links {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 200px;
+}
+
+.container__links--text {
+    font-size: 0.7em;
+    color: #3D3D3D;
+    font-weight: bold;
+    margin: 5px;
+}
+
+.footer__container--year {
+    font-size: 0.875em;
+    color: #3D3D3D;
+    font-weight: bold;
+    margin: 5px;
+    text-align: center;
 }
