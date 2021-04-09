@@ -19,6 +19,7 @@ const Feed = () => {
                     setPosts([...posts, ...res.data.result.data])
                     setHasNextPage(res.data.has_next)
                     if (hasNextPage) window.addEventListener("scroll", onScroll, { passive: true });
+                    // eslint-disable-next-line react-hooks/exhaustive-deps
                     canMakeRequest = false
                 })
                 .catch(err => console.log(err))
@@ -32,12 +33,12 @@ const Feed = () => {
                 const maxRange = Math.round(offsetHeight * 0.98)
                 if (actualPosition >= minRange && actualPosition <= maxRange && !canMakeRequest) {
                     window.removeEventListener("scroll", onScroll)
+                    // eslint-disable-next-line react-hooks/exhaustive-deps
                     canMakeRequest = true
                     setNextPage(nextPage + 1)
                 }
             }
         };
-
     }, [nextPage])
 
 
