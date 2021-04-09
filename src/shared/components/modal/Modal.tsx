@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal as ModalBoostrap, Button } from "react-bootstrap"
+import { Modal as ModalBoostrap } from "react-bootstrap"
 
 const Modal = (props: any) => {
     return (
